@@ -17,14 +17,7 @@ return new class extends Migration
             $table->id('id_quiz');
             $table->string('title');
             $table->string('description');
-            $table->string('question')->nullable();
-            $table->string('answer_1');
-            $table->string('answer_2');
-            $table->string('answer_3');
-            $table->string('answer_4')->nullable();
-            $table->string('answer_5')->nullable();
-            $table->string('correct_answer');
-            $table->integer('score')->nullable();
+            $table->foreignId('id_guru')->references('id')->on('users');
             $table->timestamps();
         });
     }

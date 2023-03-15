@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quiz extends Model
+class Question extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'id_guru'];
+    protected $guarded = ['id_question'];
 }

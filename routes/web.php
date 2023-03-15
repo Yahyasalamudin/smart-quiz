@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\QuizController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function() {
         return view('dashboard');
     })->name('dashboard');
+
+    // Quiz
+    Route::get('/quiz', [QuestionController::class, 'index'])->name('quiz');
+    Route::get('/quiz/create', [QuestionController::class, 'create'])->name('quiz.create');
 
     // Profile
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
