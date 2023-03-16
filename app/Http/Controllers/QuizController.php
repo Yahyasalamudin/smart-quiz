@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        //
+        return view('quiz.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        //
+        return view('quiz.create');
     }
 
     /**
@@ -35,17 +36,26 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        Quiz::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'answer_1' => $request->answer_1,
-            'answer_2' => $request->answer_2,
-            'answer_3' => $request->answer_3,
-            'answer_4' => $request->answer_4,
-            'answer_5' => $request->answer_5,
-            'correct_answer' => $request->correct_answer,
-        ]);
-        return redirect()->back();
+        $quiz = new Quiz();
+        $quiz->title = $request->input('title');
+        $quiz->description = $request->input('description');
+        $quiz->id_guru = auth()->user()->id;
+        $quiz->save();
+
+        foreach($request->input as $i) {
+            $questions = new Question();
+            $questions->id_quiz = $quiz->id;
+            $questions->question = $i['question'];
+            $questions->answer_a = $i['answer_a'];
+            $questions->answer_b = $i['answer_b'];
+            $questions->answer_c = $i['answer_c'];
+            $questions->answer_d = $i['answer_d'];
+            $questions->answer_e = $i['answer_e'];
+            $questions->correct_answer = $i['correct_answer'];
+            $questions->save();
+        }
+
+        return redirect('quiz');
     }
 
     /**

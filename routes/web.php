@@ -3,7 +3,6 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizController;
-use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +29,8 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
     // Quiz
-    Route::get('/quiz', [QuestionController::class, 'index'])->name('quiz');
-    Route::get('/quiz/create', [QuestionController::class, 'create'])->name('quiz.create');
+    Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
+    Route::get('/quiz/create', [QuizController::class, 'create'])->name('quiz.create');
 
     // Profile
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');

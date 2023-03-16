@@ -41,7 +41,7 @@
                     <a href="{{ route('quiz') }}" class="nav-link {{ Route::is('quiz') ? 'active' : '' }}">
                         <i class="nav-icon far fa-question-circle"></i>
                         <p>
-                            Dashboard
+                            Quiz
                         </p>
                     </a>
                 </li>
