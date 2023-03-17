@@ -84,8 +84,10 @@
                                         </ul>
                                     </div>
                                     <div class="col-5 text-center">
+                                        {{-- <div class="pic-holder"> --}}
                                         <img src="{{ url('storage/profile/' . $k->profile) }}" alt="user-avatar"
-                                            class="img-circle img-fluid">
+                                            class="img-circle img-fluid" style="height:110px; width:110px">
+                                        {{-- </div> --}}
                                     </div>
                                 </div>
                             </div>
