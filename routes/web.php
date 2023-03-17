@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizController;
 use Illuminate\Support\Facades\Route;
@@ -28,14 +29,17 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    // Classroom
+    Route::get('/class', [ClassController::class, 'index'])->name('class');
+    Route::post('/class/add-class', [ClassController::class, 'store'])->name('class.store');
+
     // Quiz
     Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
     Route::get('/quiz/create', [QuizController::class, 'create'])->name('quiz.create');
+    Route::post('/quiz/add-quiz', [QuizController::class, 'store'])->name('quiz.store');
 
     // Profile
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
     Route::put('/editprofile/{id}', [ProfileController::class, 'update'])->name('editProfile');
 
-    // Quiz
-    Route::post('/add-quiz', [QuizController::class, 'store'])->name('quiz.store');
 });

@@ -5,7 +5,7 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="profile-holder">
                 <img src="{{ url('storage/profile/' . auth()->user()->profile) }}" alt="Profile"
-                    class="img-circle profile" alt="User Image">
+                    class="img-circle profile">
             </div>
             <div class="info">
                 <a href="#" class="pl-3 d-block">{{ auth()->user()->nama }}</a>
@@ -34,6 +34,14 @@
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('class') }}" class="nav-link {{ Route::is('class') ? 'active' : '' }}">
+                        <i class="nav-icon far fa-list-alt"></i>
+                        <p>
+                            Class
                         </p>
                     </a>
                 </li>

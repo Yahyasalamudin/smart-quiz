@@ -37,84 +37,63 @@
                             </div>
                             <button type="button" class="btn btn-primary" onclick="stepper.next()">Next</button>
                         </div>
-                        @php
-                            $question = 0;
-                            $a = 0;
-                            $b = 0;
-                            $c = 0;
-                            $d = 0;
-                            $e = 0;
-                            $ca = 0;
-                            $cb = 0;
-                            $cc = 0;
-                            $cd = 0;
-                            $ce = 0;
-                        @endphp
                         <div id="information-part" class="content" role="tabpanel"
                             aria-labelledby="information-part-trigger">
                             <div id="question-form">
                                 <div class="form-group">
                                     <label for="question">Question <b>1</b></label>
-                                    <textarea class="form-control col-lg-6" name="input[{{ $question }}][question]" id="question" rows="3"
+                                    <textarea class="form-control col-lg-6" name="input[0][question]" id="question" rows="3"
                                         placeholder="Enter Question..."></textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><input type="radio"
-                                                    name="input[{{ $ca }}][correct_answer]"
-                                                    value="answer_a"></span>
+                                                    name="input[0][correct_answer]" value="answer_a"></span>
                                         </div>
-                                        <input type="text" class="form-control col-lg-5"
-                                            name="input[{{ $a }}][answer_a]" id="answer_a"
-                                            placeholder="Answer A...">
+                                        <input type="text" class="form-control col-lg-5" name="input[0][answer_a]"
+                                            id="answer_a" placeholder="Answer A...">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><input type="radio"
-                                                    name="input[{{ $cb }}][correct_answer]"
-                                                    value="answer_b"></span>
+                                                    name="input[0][correct_answer]" value="answer_b"></span>
                                         </div>
-                                        <input type="text" class="form-control col-lg-5"
-                                            name="input[{{ $b }}][answer_b]" id="answer_b"
-                                            placeholder="Answer B...">
+                                        <input type="text" class="form-control col-lg-5" name="input[0][answer_b]"
+                                            id="answer_b" placeholder="Answer B...">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><input type="radio"
-                                                    name="input[{{ $cc }}][correct_answer]"
-                                                    value="answer_c"></span>
+                                                    name="input[0][correct_answer]" value="answer_c"></span>
                                         </div>
-                                        <input type="text" class="form-control col-lg-5"
-                                            name="input[{{ $c }}][answer_c]" id="answer_c"
-                                            placeholder="Answer C...">
+                                        <input type="text" class="form-control col-lg-5" name="input[0][answer_c]"
+                                            id="answer_c" placeholder="Answer C...">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><input type="radio"
-                                                    name="input[{{ $cd }}][correct_answer]" value="answer_d"
+                                                    name="input[0][correct_answer]" value="answer_d"
                                                     id="answer_d"></span>
                                         </div>
-                                        <input type="text" class="form-control col-lg-5"
-                                            name="input[{{ $d }}][answer_d]" placeholder="Answer D...">
+                                        <input type="text" class="form-control col-lg-5" name="input[0][answer_d]"
+                                            placeholder="Answer D...">
                                     </div>
                                 </div>
                                 <div class="form-group mb-5">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><input type="radio"
-                                                    name="input[{{ $ce }}][correct_answer]"
-                                                    value="answer_e"></span>
+                                                    name="input[0][correct_answer]" value="answer_e"></span>
                                         </div>
-                                        <input type="text" class="form-control col-lg-5"
-                                            name="input[{{ $e }}][answer_e]" id="answer_e"
-                                            placeholder="Answer E...">
+                                        <input type="text" class="form-control col-lg-5" name="input[0][answer_e]"
+                                            id="answer_e" placeholder="Answer E...">
                                     </div>
                                 </div>
                             </div>

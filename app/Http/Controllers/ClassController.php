@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Question;
-use App\Models\Quiz;
+use App\Models\Jurusan;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class QuizController extends Controller
+class ClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,19 +16,12 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $quiz = Quiz::all();
+        $kelas = DB::table('kelas')
+                    ->join('users', 'kelas.id_guru', 'users.id')
+                    ->get();
+        $jurusans = Jurusan::all();
 
-        return view('quiz.index', compact('quiz'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('quiz.create');
+        return view('user.class', compact('kelas', 'jurusans'));
     }
 
     /**
@@ -39,26 +32,15 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        $quiz = new Quiz();
-        $quiz->title = $request->input('title');
-        $quiz->description = $request->input('description');
-        $quiz->id_guru = auth()->user()->id;
-        $quiz->save();
+        Kelas::create([
+            'id_guru' => auth()->user()->id,
+            'mata_pelajaran' => $request->mata_pelajaran,
+            'kelas' => $request->kelas,
+            'jurusan' => $request->jurusan,
+            'tentang_pelajaran' => $request->tentang_pelajaran,
+        ]);
 
-        foreach($request->input as $i) {
-            $questions = new Question();
-            $questions->id_quiz = $quiz->id;
-            $questions->question = $i['question'];
-            $questions->answer_a = $i['answer_a'];
-            $questions->answer_b = $i['answer_b'];
-            $questions->answer_c = $i['answer_c'];
-            $questions->answer_d = $i['answer_d'];
-            $questions->answer_e = $i['answer_e'];
-            $questions->correct_answer = $i['correct_answer'];
-            $questions->save();
-        }
-
-        return redirect('quiz');
+        return redirect()->back();
     }
 
     /**

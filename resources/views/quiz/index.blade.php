@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a href="{{ route('quiz.create') }}"><i class="fas fa-plus"></i> Tambah Quiz</a>
+            <a class="btn btn-primary" href="{{ route('quiz.create') }}"><i class="fas fa-plus"></i> Tambah Quiz</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -16,17 +16,17 @@
                         <th>Browser</th>
                         <th>Platform(s)</th>
                         <th>Engine version</th>
-                        <th>CSS grade</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 4.0</td>
-                        <td>Win 95+</td>
-                        <td>4</td>
-                        <td>X</td>
-                    </tr>
+                    @foreach ($quiz as $qu)
+                        <tr>
+                            <td>{{ $qu->title }}</td>
+                            <td>TEST</td>
+                            <td>4</td>
+                            <td>X</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
