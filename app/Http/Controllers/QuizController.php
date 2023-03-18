@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Question;
 use App\Models\Quiz;
+use App\Models\SoalKelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -47,7 +49,7 @@ class QuizController extends Controller
 
         foreach($request->input as $i) {
             $questions = new Question();
-            $questions->id_quiz = $quiz->id;
+            $questions->id_quiz = $quiz->id_quiz;
             $questions->question = $i['question'];
             $questions->answer_a = $i['answer_a'];
             $questions->answer_b = $i['answer_b'];
@@ -57,6 +59,37 @@ class QuizController extends Controller
             $questions->correct_answer = $i['correct_answer'];
             $questions->save();
         }
+
+        return redirect('quiz');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function addClass($id)
+    {
+        $quiz = Quiz::find($id);
+
+        $kelas = Kelas::all();
+
+        $soalkelas = DB::table('soal_kelas')->get();
+
+        return view('quiz.add-to-class', compact('quiz', 'kelas', 'soalkelas'));
+    }
+
+    public function addToClass(Request $request, $id)
+    {
+        $request->validate([
+            'kelas' => 'array',
+            'kelas.*' => 'integer|exists:kelas,id_kelas'
+        ]);
+
+        $quiz = Quiz::findOrFail($id);
+        $kelasIds = $request->input('kelas');
+        $quiz->kelas()->sync($kelasIds);
 
         return redirect('quiz');
     }

@@ -37,6 +37,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
     Route::get('/quiz/create', [QuizController::class, 'create'])->name('quiz.create');
     Route::post('/quiz/add-quiz', [QuizController::class, 'store'])->name('quiz.store');
+    Route::get('/quiz/{id}/addToClass', [QuizController::class, 'addClass'])->name('addClass');
+    Route::get('/quiz/{id}/create', [QuizController::class, 'addToClass'])->name('addToClass');
 
     // Profile
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');

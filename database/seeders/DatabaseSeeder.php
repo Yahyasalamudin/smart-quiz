@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Jurusan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -55,6 +56,34 @@ class DatabaseSeeder extends Seeder
             'tempat_lahir' => 'Jember',
             'jenis_kelamin' => 'pria',
             'profile' => 'default.png'
+        ]);
+
+        Jurusan::insert([
+            'jurusan' => 'RPL'
+        ]);
+
+        Jurusan::insert([
+            'jurusan' => 'MM'
+        ]);
+
+        Jurusan::insert([
+            'jurusan' => 'TKJ'
+        ]);
+
+        Jurusan::insert([
+            'jurusan' => 'TKR'
+        ]);
+
+        Jurusan::insert([
+            'jurusan' => 'TBSM'
+        ]);
+
+        Jurusan::insert([
+            'jurusan' => 'PPT'
+        ]);
+
+        Jurusan::insert([
+            'jurusan' => 'APH'
         ]);
     }
 }

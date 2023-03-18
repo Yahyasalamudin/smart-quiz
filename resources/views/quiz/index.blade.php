@@ -24,7 +24,7 @@
                             <td>{{ $qu->title }}</td>
                             <td>TEST</td>
                             <td>4</td>
-                            <td>X</td>
+                            <td><a href="{{ route('addClass', $qu->id_quiz) }}">Tambah ke kelas</a></td>
                         </tr>
                     @endforeach
                 </tbody>
