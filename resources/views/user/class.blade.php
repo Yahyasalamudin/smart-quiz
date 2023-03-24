@@ -78,8 +78,8 @@
                                             {{ $k->jurusan }} </p>
                                         <p class="text-muted text-sm"><b>About: </b> {{ $k->tentang_pelajaran }} </p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                                            <li class="small"><span class="fa-li"><i
-                                                        class="fas fa-lg fa-building"></i></span>
+                                            <li class="small"><span class="fa-li mt-1"><i
+                                                        class="fas fa-envelope text-md mr-1"></i></span>
                                                 {{ $k->email }}</li>
                                         </ul>
                                     </div>

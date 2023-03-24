@@ -17,4 +17,8 @@ class Quiz extends Model
     public function kelas() {
         return $this->belongsToMany(Kelas::class, 'soal_kelas', 'id_quiz', 'id_kelas')->withTimestamps();
     }
+
+    public function relasi() {
+        return $this->hasMany(Question::class, 'id_quiz', 'id_quiz');
+    }
 }

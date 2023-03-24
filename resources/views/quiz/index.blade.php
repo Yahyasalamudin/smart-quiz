@@ -5,9 +5,40 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a class="btn btn-primary" href="{{ route('quiz.create') }}"><i class="fas fa-plus"></i> Tambah Quiz</a>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-sm">
+                <i class="fas fa-plus"></i> Tambah Quiz
+            </button>
         </div>
-        <!-- /.card-header -->
+        {{-- Modal --}}
+        <div class="modal fade" id="modal-sm">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Small Modal</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body row justify-content-between">
+                        <a class="btn btn-primary mb-2" href="{{ route('quiz.create', 5) }}" style="width: 90px">5 Soal</a>
+                        <a class="btn btn-primary mb-2" href="{{ route('quiz.create', 10) }}" style="width: 90px">10
+                            Soal</a>
+                        <a class="btn btn-primary mb-2" href="{{ route('quiz.create', 20) }}" style="width: 90px">20
+                            Soal</a>
+                        <a class="btn btn-primary mb-2" href="{{ route('quiz.create', 25) }}" style="width: 90px">25
+                            Soal</a>
+                        <a class="btn btn-primary mb-2" href="{{ route('quiz.create', 50) }}" style="width: 90px">50
+                            Soal</a>
+                        <a class="btn btn-primary mb-2" href="{{ route('quiz.create', 100) }}" style="width: 90px">100
+                            Soal</a>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End Modal --}}
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
